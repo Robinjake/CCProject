@@ -1,0 +1,15 @@
+{
+    "devices": [
+      {
+        "name": "Camera" , 
+        "type": ["Gas_Leak ", "Oil_Leak ", "Hard_Hat_Detection "] ,
+        "id": 1
+        
+      },
+      {
+        "name": "Microphone" , 
+        "type": ["Gas_Leak ", "Explosion_Detection "] , 
+        "id": 2
+      }
+    ]
+  }
