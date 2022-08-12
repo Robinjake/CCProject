@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import {useHistory} from 'react-router-dom';
 
 function DeviceModelManager(){
-    const [name, setName] = useState('Camera');
-    const [type, setType] = useState('Gas Leak');
+    const [name, setName] = useState('Camera'); // sets state for device name
+    const [type, setType] = useState('Gas Leak'); //sets state for device type
     const history = useHistory();
+
+    //Creating an array of device objects that have a name and type
+    const device = [
+        {
+            name: "Camera",
+            type: ["Gas leak", "Oil Leak", "Hard Hat Detection"]
+        },
+        {
+            name: "Microphone",
+            type: ["Gas leak", "Explosion Detection"]
+        }
+    ]
 
     //funtion to handle when add device is clicked 
     const handleSubmit = (e) => {
         e.preventDefault(); //stops page from refreshing after submit
-        const device = {name,type}; //creating device object
-        
-        //console.log(device);
+        const device = {name,type}; //object created and sent to json file after submit
         
         //POST REQUEST
         fetch('http://localhost:8000/devices', {
@@ -30,19 +40,19 @@ function DeviceModelManager(){
         <div className="create">
             <h2>Device-Model Manager Page</h2>
             <form onSubmit={handleSubmit}>
-                <label>Device Choice: </label>
+                <label>Device Choice: </label> 
                 <select
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={name} 
+                onChange={(e) => setName(e.target.value)} //updates name based on choice
                 >
                     <option value="Camera">Camera</option>
-                    <option value="Microphone">Microphone</option>
+                    <option value="Microphone">Microphone</option> 
                 </select>    
 
                 <label>Device Model: </label>
                 <select
                 value={type}
-                onChange={(e) => setType(e.target.value)}
+                onChange={(e) => setType(e.target.value)} // updates type based on choice
                 >
                     <option value="Gas Leak">Gas Leak</option>
                     <option value="Oil Leak">Oil Leak</option>

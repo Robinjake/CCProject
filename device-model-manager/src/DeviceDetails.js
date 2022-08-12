@@ -22,7 +22,7 @@ const DeviceDetails = () => {
            {device && (
             <article>
                 <h2>{device.name}</h2>
-                <p>Model Types {device.type}</p>
+                <p>Model Type: {device.type}</p>
                 <button onClick={handleClick}>Delete</button>
             </article>
            )}

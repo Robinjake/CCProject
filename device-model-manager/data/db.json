@@ -4,6 +4,26 @@
       "name": "Camera",
       "type": "Gas Leak",
       "id": 1
+    },
+    {
+      "name": "Microphone",
+      "type": "Oil Leak",
+      "id": 2
+    },
+    {
+      "name": "Camera",
+      "type": "Hard Hat Detection",
+      "id": 3
+    },
+    {
+      "name": "Camera",
+      "type": "Hard Hat Detection",
+      "id": 4
+    },
+    {
+      "name": "Microphone",
+      "type": "Gas Leak",
+      "id": 5
     }
   ]
 }
