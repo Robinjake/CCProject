@@ -6,7 +6,7 @@ function DeviceModelManager(){
         <div>
             <h1>Device-Model Manager Page</h1>
         </div>
-    )
+    );
 }
 
 
