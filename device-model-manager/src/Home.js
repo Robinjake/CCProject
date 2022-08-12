@@ -1,36 +1,16 @@
 import React from "react";
-import {useState, useEffect} from 'react';
 import DeviceList from "./DeviceList";
+import useFetch from "./useFetch";
 
 
 function Home(){
 
-    const [devices, setDevices] = useState([
-        {
-            name: 'Camera' , 
-            type: ["Gas_Leak ", "Oil_Leak ", "Hard_Hat_Detection "] ,
-            id: 1
-        },
-        {
-            name: 'Microphone' , 
-            type: ["Gas_Leak ", "Explosion_Detection "] , 
-            id: 2
-        }
-    ]);
-
-    const handleDelete = (id) => {
-        const newDevices = devices.filter(device => device.id !== id);
-        setDevices(newDevices);
-    }
-
-    useEffect(() => {
-        console.log('use effect ran');
-
-    }, []);
+    const {data: devices, isPending} = useFetch('http://localhost:8000/devices');
 
     return(
         <div className="home">
-            <DeviceList devices={devices} title="All Devices" handleDelete={handleDelete}/>
+            {isPending && <div> Loading... </div>}
+           { devices &&<DeviceList devices={devices} title="All Devices"/> } {/*renders list when data received from json */}
         </div>
     );
 }

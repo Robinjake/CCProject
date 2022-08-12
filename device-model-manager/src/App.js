@@ -1,20 +1,30 @@
 import Home from './Home';
 import DeviceModelManager from './DeviceModelManager';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './NavBar';
+import DeviceDetails from './DeviceDetails';
 
 
 function App() {
   return (
-    <div className="App">
-      <div className='content'>
+    <Router>
+      <div className="App">
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/devicemodelmanager" element={<DeviceModelManager/>}/>
-        </Routes>
+          <div className='content'>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+            </Route>
+          <Route path="/devicemodelmanager">
+            <DeviceModelManager/>
+            </Route>
+            <Route path="/device/:id">
+            <DeviceDetails/>
+            </Route>
+        </Switch>
       </div>
     </div>
+    </Router>
   );
 }
 
