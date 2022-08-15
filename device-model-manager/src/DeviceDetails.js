@@ -1,6 +1,9 @@
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 
+// RUN JSON SERVER 
+// npx json-server --watch data/db.json --port 8000
+
 const DeviceDetails = () => {
 
     const {id} = useParams(); //hook to get device id
