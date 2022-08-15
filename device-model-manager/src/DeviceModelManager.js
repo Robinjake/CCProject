@@ -17,6 +17,31 @@ function DeviceModelManager(){
             type: ["Gas leak", "Explosion Detection"]
         }
     ]
+    // i need my model dropdown to show only compatiable models/types for a certain device
+    // for camera: gas leak, oil, hard hat
+    // for microphone: gas, exploision
+    
+    // 1)How can i handle the filtering i.e. getting the right array for a certain device
+    // given a device, i can figure out what models/types are compatiable
+    // input: device, output: array of compatiable devices 
+    // A) foo(device) return []
+
+    
+    const getCompatiableModels = (device) => {
+        if (device==="Camera") {
+            // return ["Gas leak", "Oil Leak", "Hard Hat Detection"]
+            const cameraModels = ["Gas leak", "Oil Leak", "Hard Hat Detection"]
+            return cameraModels.map((cameraModel) => <option key={cameraModel} value={cameraModel}>{cameraModel}</option>)
+        }
+        else if (device === "Microphone") {
+            const micModels = ["Gas leak", "Explosion Detection"]
+            return micModels.map((micModel) => <option key={micModel} value={micModel}>{micModel}</option> )
+        }
+        return []
+    }
+
+
+
 
     //funtion to handle when add device is clicked 
     const handleSubmit = (e) => {
@@ -54,10 +79,11 @@ function DeviceModelManager(){
                 value={type}
                 onChange={(e) => setType(e.target.value)} // updates type based on choice
                 >
-                    <option value="Gas Leak">Gas Leak</option>
+                    {getCompatiableModels(name)}
+                    {/* <option value="Gas Leak">Gas Leak</option>
                     <option value="Oil Leak">Oil Leak</option>
                     <option value="Explosion Detection">Explosion Detection</option>
-                    <option value="Hard Hat Detection">Hard Hat Detection</option>
+                    <option value="Hard Hat Detection">Hard Hat Detection</option> */}
                 </select>    
                 <button>Add Device</button>
                 <p>{name}</p>

@@ -19,11 +19,6 @@
       "name": "Camera",
       "type": "Hard Hat Detection",
       "id": 4
-    },
-    {
-      "name": "Microphone",
-      "type": "Gas Leak",
-      "id": 5
     }
   ]
 }

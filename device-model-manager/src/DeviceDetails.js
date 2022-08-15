@@ -14,6 +14,15 @@ const DeviceDetails = () => {
         }).then(() => {
             history.push('/'); //sends back to homepage after delete
         })
+    
+    }
+
+    const handleClickAsync = async () => {
+        await fetch('http://localhost:8000/devices/' + device.id, {
+            method: 'DELETE'
+        })
+
+        history.push('/'); //sends back to homepage after delete
     }
 
     return ( 
